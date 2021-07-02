@@ -16,7 +16,9 @@
    我的电脑 -> 属性 -> 高级系统设置 -> 环境变量 -> 新增：变量名: GOPROXY , 变量值：https://goproxy.io,direct
    
 二. goland配置代理
-    `settings -> Go modules(vgo) -> Proxy: https://goproxy.io,direct`
+    ```
+    settings -> Go modules(vgo) -> Proxy: https://goproxy.io,direct
+    ```
     
 三. mod基本概念
    1. go.mod 文件：项目启动的核心文件，描述了当前项目的依赖包信息。
@@ -28,6 +30,7 @@
    2. go.sum 文件：类似于Gopkg.lock的一类文件，罗列了当前项目直接或间接依赖的所有模块版本。
    
 四. go mod 常用命令
+
     ```
     用 go help module-get 和 go help gopath-get 分别去了解 Go modules 启用和未启用两种状态下的 go get 的行为
     用 go get 拉取新的依赖
@@ -44,23 +47,30 @@
     用 go mod vendor 导出现有的所有依赖（事实上 Go modules 正在淡化 Vendor 的概念）
     用 go mod verify 校验一个模块是否被篡改过
     ```
+    
 五. 新建项目
     1. 设置代理
     windows
+    
     ```
     go env -w GO111MODULE=on
     go env -w GOPROXY=https://goproxy.cn,direct
     ```
+    
     mac/linux
+    
     ```
     export GO111MODULE=on
     export GOPROXY=https://goproxy.cn
     ```
+    
     2. 创建hello目录
     3. 初始化项目
+    
     ```
     go mod init hello
     ```
+    
     go.mod 提供了go、module, require、replace和exclude 五个命令
     - module：用于定义当前项目的模块路径
     - go：用于设置预期的Go版本
